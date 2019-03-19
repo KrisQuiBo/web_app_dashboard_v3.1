@@ -1,0 +1,480 @@
+@import url("https://fonts.googleapis.com/css?family=Lato|Roboto+Slab");
+@import url("https://fonts.googleapis.com/css?family=Arimo:700i");
+/* variables */
+/*maps*/
+/* mixins */
+/*-----
+  ----- Global styles ----
+                      -----*/
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  font-family: "Lato", sans-serif;
+  background-color: #b7c2e0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: #263359;
+}
+a:hover {
+  color: #85ba5e;
+}
+
+h3 {
+  text-transform: uppercase;
+  margin-left: 5%;
+}
+
+.user-photo {
+  padding: 1%;
+  border-radius: 50%;
+  width: 5rem;
+  align-self: center;
+}
+
+/*----
+  ----- base grid ----
+                  ----*/
+.wrapper {
+  width: 96%;
+  max-width: 1680px;
+  margin-left: auto;
+  margin-right: auto;
+  background: white;
+  border: 3px solid #5e75ba;
+  border-radius: 10px;
+  grid-template-columns: 1fr;
+  grid-template-rows: minmax(100px, auto);
+}
+@media (min-width: 769px) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: 0.25fr 1fr 1fr;
+    grid-template-areas: "two two two" "one three three" "one four four" "one five six" "one seven seven" "one eight nine" "one ten eleven";
+  }
+}
+
+@media (min-width: 769px) {
+  .three {
+    grid-area: three;
+  }
+}
+
+@media (min-width: 769px) {
+  .four {
+    grid-area: four;
+  }
+}
+
+@media (min-width: 769px) {
+  .five {
+    grid-area: five;
+  }
+}
+
+@media (min-width: 769px) {
+  .six {
+    grid-area: six;
+  }
+}
+
+@media (min-width: 769px) {
+  .seven {
+    grid-area: seven;
+  }
+}
+
+@media (min-width: 769px) {
+  .eight {
+    grid-area: eight;
+  }
+}
+
+@media (min-width: 769px) {
+  .nine {
+    grid-area: nine;
+  }
+}
+
+@media (min-width: 769px) {
+  .ten {
+    grid-area: ten;
+  }
+}
+
+@media (min-width: 769px) {
+  .eleven {
+    grid-area: eleven;
+  }
+}
+
+/*---
+  ---- icon menu
+              -----
+                ---*/
+.one {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+}
+@media (min-width: 769px) {
+  .one {
+    grid-area: one;
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: 1fr;
+  }
+}
+
+.icons {
+  margin: 0;
+  width: 5rem;
+  height: auto;
+  padding: 20px;
+}
+@media (min-width: 769px) {
+  .icons {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+nav {
+  background-color: #263359;
+}
+
+/*---
+  ----- header/location bar  -----
+                              ---*/
+main {
+  color: #555;
+}
+
+a {
+  text-align: center;
+}
+
+.logo {
+  font-family: "Arimo", sans-serif;
+  font-size: 1.2em;
+}
+
+.header {
+  padding: 10px;
+  margin: 0;
+  background-color: #5e75ba;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.headerTwo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.bell {
+  display: block;
+  width: 5%;
+  margin: 0;
+}
+
+.iconAlert {
+  position: absolute;
+  top: 5px;
+  left: 55px;
+  background-color: #85ba5e;
+  padding: 5px 7px;
+  border-radius: 50%;
+}
+
+.two {
+  grid-area: two;
+}
+
+/*----
+    ---- dashboard & search -----
+                            ----*/
+.searchAlert {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+input {
+  width: 50%;
+  height: 28px;
+  text-indent: 5px;
+  align-self: baseline;
+  padding: 5px;
+  margin-right: 10px;
+  background: url("../icons/magnifyGlass.svg") no-repeat;
+  background-size: 1.3em;
+  background-position: right;
+}
+
+.alert {
+  background: #5e75ba;
+  font-size: 0.75em;
+  color: white;
+  width: 100%;
+  padding: 5px 15px 5px 10px;
+}
+
+.alert button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  float: right;
+  cursor: pointer;
+}
+
+/*-----
+   ----- Social Stats -----
+                      ----*/
+@media (min-width: 769px) {
+  .social-stats {
+    display: flex;
+    margin: 2%;
+  }
+}
+
+.twitter {
+  fill: white;
+}
+
+.social-contain {
+  margin: 5% auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid #263359;
+  width: 75%;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #f8f9fc;
+}
+@media (min-width: 769px) {
+  .social-contain {
+    width: 30%;
+    background-color: white;
+  }
+}
+
+svg {
+  width: 6rem;
+  height: auto;
+  margin-right: 5%;
+}
+
+.stat {
+  font-size: 2.5rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+  color: #5e75ba;
+}
+
+/*-----
+  ----- Member  & Activity -----
+                        -----*/
+.members,
+.activity {
+  width: 90%;
+  max-width: 1680px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+  margin: 3%;
+  padding: 2%;
+  border-bottom: 0.5px solid #263359;
+}
+
+.ago {
+  font-size: 0.9rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.goToActivity {
+  font-size: 3rem;
+  padding-left: 1%;
+  color: #263359;
+}
+
+/*---
+  ----- Message & Settings  -----
+                              ---*/
+.message-user {
+  width: 90%;
+  max-width: 1680px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #263359;
+  border-radius: 10px;
+  padding: 2%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+}
+
+.message input,
+.message textarea,
+.message button {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.message textarea {
+  height: 8rem;
+}
+
+.message button,
+.settings button {
+  color: white;
+  background-color: #5e75ba;
+  padding: 10px;
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+.settings {
+  width: 90%;
+  max-width: 1680px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  border: 1px solid #263359;
+  border-radius: 10px;
+  padding: 2%;
+}
+
+.settings button {
+  width: 45%;
+  margin-top: 5%;
+}
+
+#cancel {
+  background-color: #ccc;
+}
+
+.settings form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  text-align: center;
+  margin: 10px;
+}
+
+.settings select,
+.publicProf {
+  margin-top: 5%;
+}
+
+.settings select {
+  width: 100%;
+  background: transparent;
+  padding: 2%;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 90px;
+  height: 36px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  text-align: left;
+  padding-left: 15px;
+  padding-top: 5px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 8px;
+  bottom: 5px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #5e75ba;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #263359;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(50px);
+  -ms-transform: translateX(50px);
+  transform: translateX(50px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+  color: white;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.toggleOne,
+.toggleTwo {
+  width: 85%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 3%;
+}
+
+/*# sourceMappingURL=styles.css.map */
