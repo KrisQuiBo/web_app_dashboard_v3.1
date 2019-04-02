@@ -18,6 +18,8 @@ body {
 
 ul {
   list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 a {
@@ -45,98 +47,51 @@ h3 {
                   ----*/
 .wrapper {
   width: 96%;
-  max-width: 1680px;
+  max-width: 2680px;
   margin-left: auto;
   margin-right: auto;
   background: white;
   border: 3px solid #5e75ba;
   border-radius: 10px;
-  grid-template-columns: 1fr;
-  grid-template-rows: minmax(100px, auto);
 }
 @media (min-width: 769px) {
   .wrapper {
     display: grid;
-    grid-template-columns: 0.25fr 1fr 1fr;
-    grid-template-areas: "two two two" "one three three" "one four four" "one five six" "one seven seven" "one eight nine" "one ten eleven";
+    grid-template-columns: 0.25fr repeat(2, 1fr);
+  }
+}
+
+.stats--traffic,
+.stats--daily-traffic,
+.stats--mobile-users {
+  padding: 10%;
+}
+
+@media (min-width: 769px) {
+  .stats--traffic {
+    grid-column: 2/4;
   }
 }
 
 @media (min-width: 769px) {
-  .three {
-    grid-area: three;
+  .location--dashboard {
+    grid-column: 2/4;
   }
 }
 
 @media (min-width: 769px) {
-  .four {
-    grid-area: four;
-  }
-}
-
-@media (min-width: 769px) {
-  .five {
-    grid-area: five;
-  }
-}
-
-@media (min-width: 769px) {
-  .six {
-    grid-area: six;
-  }
-}
-
-@media (min-width: 769px) {
-  .seven {
-    grid-area: seven;
-  }
-}
-
-@media (min-width: 769px) {
-  .eight {
-    grid-area: eight;
-  }
-}
-
-@media (min-width: 769px) {
-  .nine {
-    grid-area: nine;
-  }
-}
-
-@media (min-width: 769px) {
-  .ten {
-    grid-area: ten;
-  }
-}
-
-@media (min-width: 769px) {
-  .eleven {
-    grid-area: eleven;
+  .stats--social-stats {
+    grid-column: 2/4;
   }
 }
 
 /*---
-  ---- icon menu
-              -----
-                ---*/
-.one {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: auto;
-}
-@media (min-width: 769px) {
-  .one {
-    grid-area: one;
-    display: flex;
-    flex-direction: column;
-    grid-template-columns: 1fr;
-  }
-}
-
+  ---- icon menu navigation
+                          -----
+                            ---*/
 .icons {
   margin: 0;
-  width: 5rem;
+  width: 4.5rem;
   height: auto;
   padding: 20px;
 }
@@ -149,6 +104,46 @@ h3 {
 
 nav {
   background-color: #263359;
+}
+
+.navigation {
+  background-color: #263359;
+  grid-column: 1/2;
+  grid-row: 2/8;
+}
+
+.nav {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+@media (min-width: 769px) {
+  .nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    grid-template-columns: minmax(150px, 1fr);
+  }
+}
+
+/* Page content */
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 60px;
 }
 
 /*---
@@ -168,15 +163,19 @@ a {
 }
 
 .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
   padding: 10px;
   margin: 0;
   background-color: #5e75ba;
   color: white;
-  display: flex;
-  justify-content: space-between;
+  grid-column: 1/4;
+  grid-row: 1/2;
 }
 
-.headerTwo {
+.user-- {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -186,22 +185,49 @@ a {
 }
 
 .bell {
-  display: block;
-  width: 5%;
-  margin: 0;
+  width: 2.7rem;
+  transform-origin: 16px 16px;
+}
+
+@keyframes tiltPop {
+  20% {
+    transform: scale(1.1) rotate(45deg);
+  }
+  40% {
+    transform: scale(0.8) rotate(-32deg);
+  }
+  60% {
+    transform: scale(1.1) rotate(45deg);
+  }
+  80% {
+    transform: scale(0.9) rotate(-12deg);
+  }
+}
+.bell:hover {
+  animation: tiltPop 1s ease-in backwards infinite;
 }
 
 .iconAlert {
   position: absolute;
-  top: 5px;
-  left: 55px;
+  top: 20px;
+  left: 20px;
   background-color: #85ba5e;
-  padding: 5px 7px;
+  padding: 5px;
+  width: 25px;
   border-radius: 50%;
+  font-size: 0.8rem;
 }
 
-.two {
-  grid-area: two;
+.active {
+  border: 2px solid #85ba5e;
+  border-radius: 10px;
+  fill: #85ba5e;
+}
+
+.show {
+  display: block;
+  position: relative;
+  z-index: 199;
 }
 
 /*----
@@ -212,6 +238,10 @@ a {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: baseline;
+}
+
+.hide {
+  display: none;
 }
 
 input {
@@ -243,10 +273,44 @@ input {
 }
 
 /*-----
+   ----- Charts -----
+                      ----*/
+.btn-chart {
+  display: flex;
+  justify-content: flex-end;
+  text-align: center;
+}
+
+.btn {
+  margin-right: 1%;
+  padding: 1% 3%;
+}
+.btn:hover {
+  color: white;
+  border-radius: 25px;
+}
+
+li#hour:hover {
+  background-color: rgba(183, 194, 224, 0.5);
+}
+
+li#day:hover {
+  background-color: rgba(133, 186, 94, 0.4);
+}
+
+li#week:hover {
+  background-color: rgba(183, 194, 224, 0.9);
+}
+
+li#month:hover {
+  background-color: rgba(133, 186, 94, 0.8);
+}
+
+/*-----
    ----- Social Stats -----
                       ----*/
 @media (min-width: 769px) {
-  .social-stats {
+  .stats--social-stats {
     display: flex;
     margin: 2%;
   }
@@ -296,7 +360,7 @@ h4 {
 .members,
 .activity {
   width: 90%;
-  max-width: 1680px;
+  max-width: 2680px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -323,7 +387,7 @@ h4 {
                               ---*/
 .message-user {
   width: 90%;
-  max-width: 1680px;
+  max-width: 2680px;
   margin-left: auto;
   margin-right: auto;
   border: 1px solid #263359;
@@ -362,7 +426,7 @@ h4 {
 
 .settings {
   width: 90%;
-  max-width: 1680px;
+  max-width: 2680px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 2%;
@@ -377,7 +441,7 @@ h4 {
   margin-top: 5%;
 }
 
-#cancel {
+#clearSettings {
   background-color: #ccc;
 }
 

@@ -11,7 +11,7 @@ $lato: 'Lato', sans-serif;
 $roboto: 'Roboto Slab', serif;
 $arimo: 'Arimo', sans-serif;
 
-$max-width: 1680px;
+$max-width: 2680px;
 $media-break: 769px;
 
 /*maps*/
@@ -75,6 +75,8 @@ body {
 }
 ul {
   list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 a {
   text-decoration: none;
@@ -98,94 +100,114 @@ h3 {
   ----- base grid ----
                   ----*/
 
+
 .wrapper {
   @include center(96%);
   background: white;
   border: 3px solid lighten($primaryColor, 30%);
   border-radius: 10px;
-  // display: grid;
-  // height: 100vh;
-  grid-template-columns: 1fr;
-  grid-template-rows: minmax(100px, auto);
     @media (min-width: $media-break) {
       display: grid;
-      grid-template-columns: .25fr 1fr 1fr;
-      grid-template-areas: "two two two"
-                            "one three three"
-                            "one four four"
-                            "one five six"
-                            "one seven seven"
-                            "one eight nine"
-                            "one ten eleven"
-
+      grid-template-columns: .25fr repeat(2, 1fr);
+      // display: grid;
+      // grid-template-columns: .25fr 1fr 1fr;
+      // grid-template-areas: "two two two"
+      //                       "one three three"
+      //                       "one four four"
+      //                       "one five six"
+      //                       "one seven seven"
+      //                       "one eight nine"
+      //                       "one ten eleven"
+      //
     }
 }
-.three {
-    @media (min-width: $media-break) {
-      grid-area: three;
-  }
+.stats--traffic,
+.stats--daily-traffic,
+.stats--mobile-users {
+  padding: 10%;
 }
-.four {
-    @media (min-width: $media-break) {
-    grid-area: four;
-  }
-}
-.five {
-    @media (min-width: $media-break) {
-    grid-area: five;
-  }
-}
-.six {
+.stats--traffic{
   @media (min-width: $media-break) {
-    grid-area: six;
+    grid-column: 2/4;
   }
 }
+.location--dashboard {
+    @media (min-width: $media-break) {
+    grid-column: 2/4;
+  }
+}
+.stats--social-stats {
+  @media(min-width: $media-break) {
+    grid-column: 2/4;
+  }
+}
+// .three {
+//     @media (min-width: $media-break) {
+//       grid-area: three;
+//   }
+// }
+// .four {
+//     @media (min-width: $media-break) {
+//     grid-area: four;
+//   }
+// }
+// .five {
+//     @media (min-width: $media-break) {
+//     grid-area: five;
+//   }
+// }
+// .six {
+//   @media (min-width: $media-break) {
+//     grid-area: six;
+//   }
+// }
+//
+// .seven {
+//   @media (min-width: $media-break) {
+//     grid-area: seven;
+//   }
+// }
+// .eight {
+//   @media (min-width: $media-break) {
+//     grid-area: eight;
+//   }
+// }
+// .nine {
+//   @media (min-width: $media-break) {
+//     grid-area: nine;
+//   }
+// }
+// .ten {
+//   @media (min-width: $media-break) {
+//     grid-area: ten;
+//   }
+// }
+// .eleven {
+//   @media (min-width: $media-break) {
+//     grid-area: eleven;
+//   }
+// }
 
-.seven {
-  @media (min-width: $media-break) {
-    grid-area: seven;
-  }
-}
-.eight {
-  @media (min-width: $media-break) {
-    grid-area: eight;
-  }
-}
-.nine {
-  @media (min-width: $media-break) {
-    grid-area: nine;
-  }
-}
-.ten {
-  @media (min-width: $media-break) {
-    grid-area: ten;
-  }
-}
-.eleven {
-  @media (min-width: $media-break) {
-    grid-area: eleven;
-  }
-}
+
+// .one {
+//   display: grid;
+//   // grid-template-columns: repeat(4, 1fr);
+//   grid-template-rows: auto;
+//     @media (min-width: $media-break) {
+//       grid-area: one;
+//       @include flex-it($dir: column, $align: center);
+//       grid-template-columns: minmax(150px,1fr);
+//     }
+// }
 
 /*---
-  ---- icon menu
-              -----
-                ---*/
-.one {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: auto;
-    @media (min-width: $media-break) {
-      grid-area: one;
-      display: flex;
-      flex-direction: column;
-      grid-template-columns: 1fr;
-    }
-}
+  ---- icon menu navigation
+                          -----
+                            ---*/
 
 .icons {
   margin: 0;
-  width: 5rem;
+  width: 4.5rem;
   height: auto;
   padding: 20px;
     @media (min-width: $media-break) {
@@ -196,6 +218,41 @@ h3 {
 
 nav {
 background-color: $primaryColor;
+}
+
+.navigation {
+  background-color: $primaryColor;
+  grid-column: 1/2;
+  grid-row: 2/8;
+}
+.nav {
+list-style-type: none;
+padding: 0;
+margin: 0;
+display: flex;
+width: 100%;
+justify-content: space-around;
+  @media (min-width: $media-break) {
+    // display: grid;
+    // grid-area: one;
+    @include flex-it($dir: column, $align: center);
+    grid-template-columns: minmax(150px,1fr);
+  }
+}
+/* Page content */
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 60px;
 }
 
 /*---
@@ -212,48 +269,78 @@ a {
   font-size: 1.2em;
 }
 .header {
+  @include flex-it($just: space-between, $align: center);
   padding: 10px;
   margin: 0;
   background-color: $secondaryColor;
   color: white;
-  display: flex;
-  justify-content: space-between;
+  grid-column: 1/4;
+  grid-row: 1/2;
+
 }
-.headerTwo {
+.user-- {
     @include flex-it($dir: row, $just: space-between, $align:center);
     position: relative;
 }
 
 .bell {
-  display: block;
-  width: 5%;
-  margin: 0;
+width: 2.7rem;
+transform-origin: 16px 16px;
+}
+
+@keyframes tiltPop {
+  20% {
+    transform: scale(1.1) rotate(45deg);
+  }
+  40% {
+    transform: scale(.8) rotate(-32deg);
+  }
+  60% {
+    transform: scale(1.1) rotate(45deg);
+  }
+  80% {
+    transform: scale(.9) rotate(-12deg);
+  }
+}
+.bell:hover {
+    animation: tiltPop 1s ease-in backwards infinite
 }
 .iconAlert {
   position: absolute;
-  top: 5px;
-  left: 55px;
-  background-color: $accentColor;
-  padding: 5px 7px;
+  top: 20px;
+  left: 20px;
+  background-color: #85ba5e;
+  padding: 5px;
+  width: 25px;
   border-radius: 50%;
-
+  font-size: .8rem;
 }
-.two {
-  grid-area: two;
+// .two {
+//   grid-area: two;
+// }
+
+.active {
+  border: 2px solid $accentColor;
+  border-radius: 10px;
+  fill: $accentColor;
+}
+.show {
+  display: block;
+  position: relative;
+  z-index: 199;
 }
 /*----
     ---- dashboard & search -----
                             ----*/
-
 
 .searchAlert {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: baseline;
-
-  // display: grid;
-  // grid-template-columns: 1fr 2fr;
+}
+.hide {
+  display: none;
 }
 input {
   width: 50%;
@@ -283,9 +370,40 @@ input {
     cursor: pointer;
 }
 /*-----
+   ----- Charts -----
+                      ----*/
+.btn-chart {
+@include flex-it($just: flex-end)
+}
+.btn {
+  margin-right: 1%;
+  padding: 1% 3%;
+  &:hover {
+    color: white;
+    // background-color: $accentColor;
+    border-radius: 25px;
+  }
+}
+li#hour:hover {
+  background-color:rgba(183, 194, 224, .5);
+}
+
+li#day:hover {
+  background-color: rgba(133, 186, 94, .4);
+}
+li#week:hover {
+  background-color: rgba(183, 194, 224, .9);
+}
+li#month:hover {
+  background-color: rgba(133, 186, 94, .8);
+}
+
+
+
+/*-----
    ----- Social Stats -----
                       ----*/
-.social-stats {
+.stats--social-stats {
   @media (min-width: $media-break) {
     display: flex;
     margin: 2%;
@@ -405,7 +523,7 @@ h4 {
   margin-top: 5%;
 }
 
-#cancel {
+#clearSettings {
   background-color: #ccc;
 }
 

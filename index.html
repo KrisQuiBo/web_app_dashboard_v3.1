@@ -5,16 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="apple-touch-icon" sizes="57x57" href="icons/apple-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="icons/apple-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="icons/apple-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="icons/apple-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="icons/apple-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="icons/apple-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="icons/apple-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="icons/apple-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192"  href="icons/android-icon-192x192.png">
   <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="96x96" href="icons/favicon-96x96.png">
   <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
@@ -25,45 +15,75 @@
   <title>YOURapp</title>
 </head>
 <body>
-  <div class="wrapper">
+  <div class="wrapper" id="wrapper">
     <!--icon menu -->
-    <nav class="icon-menu one" id="icon-menu">
-      <a href="#"><img class="icons" src="icons/icon-dashboard.svg" alt="dashboard icon"></a>
-      <a href="#"><img class="icons" src="icons/icon-members.svg" alt="members icon"></a>
-      <a href="#"><img class="icons" src="icons/icon-visits.svg" alt="visits icon"></a>
-      <a href="#"><img class="icons" src="icons/icon-settings.svg" alt="settings icon"></a>
-    </nav>
+    <section id="navigation" class="navigation">
+      <nav class="icon-menu one" id="icon-menu">
+        <ul class="nav" id="nav">
+          <li><a href="#dashboard"><img class="icons active" src="icons/icon-dashboard.svg" alt="dashboard icon"></a></li>
+          <li><a href="#members"><img class="icons" src="icons/icon-members.svg" alt="members icon"></a></li>
+          <li><a href="#visits"><img class="icons" src="icons/icon-visits.svg" alt="visits icon"></a></li>
+          <li><a href="#settings"><img class="icons" src="icons/icon-settings.svg" alt="settings icon"></a></li>
+        </ul>
+      </nav>
+    </section>
     <!--user banner -->
-    <div class="header two">
+    <div class="location-- header two" id="dashboard">
       <p class="logo"><b>Your</b>App&trade;</p>
-        <div class="headerTwo">
-          <img src="icons/icon-bell.svg" class="icons" alt="bell icon" id="bell-icon">
+        <div class="user--" id="user">
+          <!-- <img src="icons/icon-bell.svg" class="icons" alt="bell icon" id="bell-icon"> -->
+          <svg version="1.1" id="bellIcon" class="bell" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          	 viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+          <style type="text/css">
+          	.st0{fill:#FFFFFF;}
+          </style>
+          <g id="_x36__6_">
+          	<g>
+          		<path class="st0" d="M24,18v-8c0-5.5-4.5-10-10-10S4,4.5,4,10v8l-4,8h9.1c0.5,2.3,2.5,4,4.9,4s4.4-1.7,4.9-4H28L24,18z M14,28
+          			c-1.3,0-2.4-0.8-2.8-2h5.6C16.4,27.2,15.3,28,14,28z M3,24l3-6v-8c0-4.4,3.6-8,8-8s8,3.6,8,8v8l3,6H3z"/>
+          	</g>
+          </g>
+          </svg>
           <img src="images/member-1.jpg" class="user-photo" alt="Jane Sullivan">
-          <div class="iconAlert" id="iconAlert">1</div>
+          <div class="iconAlert" id="iconAlert">4</div>
           <p class="user-name">Jane Sullivan</p>
       </div>
     </div>
-    <!-- <main> -->
-    <div class="searchAlert three">
-      <h3>Dashboard</h3>
-      <input type="text" id="keyword" placeholder="search " class="dashSearch">
-      <!-- <i class="fas fa-search"></i> -->
+    <section class="location--dashboard">
+      <div class="location-- searchAlert three">
+        <h3>Dashboard</h3>
+        <datalist id="memberNames">
+          <option value="Dale Byrd">
+          <option value="Victoria Chambers">
+          <option value="Dan Oliver">
+          <option value="Jane Sullivan">
+          <option value="Dawn Wood">
+        </datalist>
+        <input type="text" list="memberNames" id="searchMembers" placeholder="search " class="dashSearch">
       <p class="alert" id="alert"><strong>Alert </strong> Lorem ipsum dolor sit amet, consectetur adipiscing
-        elit. Maecenas non nunc sed turpis pretium convallis id eget urna. Nam et. <button>X</button> </p>
+        elit. Maecenas non nunc sed turpis pretium convallis id eget urna. Nam et. <button id="hideButton">X</button> </p>
     </div>
-    <div class="traffic four">
+  </section>
+    <div class="stats--traffic four">
       <h3>Traffic</h3>
+        <ul class="btn-chart">
+          <li class="btn" id="hour">Hourly</li>
+          <li class="btn" id="day">Daily</li>
+          <li class="btn" id="week">Weekly</li>
+          <li class="btn" id="month">Monthly</li>
+        </ul>
       <canvas id="lineChart" width="auto" height="auto"></canvas>
     </div>
-    <div class="daily-traffic five">
+    <div class="stats--daily-traffic five">
       <h3>Daily Traffic</h3>
       <canvas id="barChart" width="auto" height="400"></canvas>
+      <!-- <canvas id="barChart-two" width="auto" height="400"></canvas> -->
     </div>
-    <div class="mobile-users six">
+    <div class="stats--mobile-users six">
       <h3>Mobile Users</h3>
       <canvas id="donutChart" width="400" height="400"></canvas>
     </div>
-    <div class="social-stats seven">
+    <div class="stats--social-stats seven" id="visits">
       <div class="twitter social-contain">
         <svg version="1.1" class="twitter" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="60px" x="24" y="24"
       	viewBox="-23 -23 80 80" width="56.693px"style="enable-background:new 0 0 32 32;" xml:space="preserve">
@@ -113,35 +133,35 @@
             <h4>Google+</h4><p class="stat">2,530</p></div>
           </div>
     </div>
-    <div class="new-members eight">
+    <div class="new-members eight" id="members">
       <h3>New Members</h3>
       <ul>
-        <li class="members"><div class="hopeThisWorks"><img src="images/member-1.jpg" class="user-photo" alt="Victoria Chambers"><p>Victoria Chambers</p><a href="mailto:victoria.chambers80@example.com">victoria.chambers80@example.com</a></div><p>3/21/19</p></li>
-        <li class="members"><div class="hopeThisWorks"><img src="images/member-2.jpg" class="user-photo" alt="Dale Byrd"><p>Dale Byrd</p><a href="mailto:dale.byrd52@example.com">dale.byrd52@example.com</a></div><p>3/21/19</p></li>
-        <li class="members"><div class="hopeThisWorks"><img src="images/member-3.jpg" class="user-photo" alt="Dawn Wood"><p>Dawn Wood</p><a href="mailto:dawn.wood16@example.com">dawn.wood16@example.com</a></div><p>3/21/19</p></li>
-        <li class="members"><div class="hopeThisWorks"><img src="images/member-4.jpg" class="user-photo" alt="Dan Oliver"><p>Dan Oliver</p><a href="mailto:dan.oliver82@example.com">dan.oliver82@example.com</a></div><p>3/21/19</p></li>
+        <li class="members"><div><img src="images/member-1.jpg" class="user-photo" alt="Victoria Chambers"><p>Victoria Chambers</p><a href="mailto:victoria.chambers80@example.com">victoria.chambers80@example.com</a></div><p>3/21/19</p></li>
+        <li class="members"><div><img src="images/member-2.jpg" class="user-photo" alt="Dale Byrd"><p>Dale Byrd</p><a href="mailto:dale.byrd52@example.com">dale.byrd52@example.com</a></div><p>3/21/19</p></li>
+        <li class="members"><div><img src="images/member-3.jpg" class="user-photo" alt="Dawn Wood"><p>Dawn Wood</p><a href="mailto:dawn.wood16@example.com">dawn.wood16@example.com</a></div><p>3/21/19</p></li>
+        <li class="members"><div><img src="images/member-4.jpg" class="user-photo" alt="Dan Oliver"><p>Dan Oliver</p><a href="mailto:dan.oliver82@example.com">dan.oliver82@example.com</a></div><p>3/21/19</p></li>
       </ul>
     </div>
     <div class="recent-activity nine">
         <h3>Recent Activity</h3>
       <ul>
-        <li class="activity"><div class="hopeThisWorks"><img src="images/member-1.jpg" class="user-photo" alt="Victoria Chambers"><p>Victoria Chambers commented on YourApp's SEO tips</p><p class="ago">4 hours ago</p></div><a class="goToActivity">></a></li>
-        <li class="activity"><div class="hopeThisWorks"><img src="images/member-2.jpg" class="user-photo" alt="Dale Byrd"><p>Dale Byrd</p><p class="ago">4 hours ago</p></div><a class="goToActivity"></a></li>
-        <li class="activity"><div class="hopeThisWorks"><img src="images/member-3.jpg" class="user-photo" alt="Dawn Wood"><p>Dawn Wood</p><p class="ago">4 hours ago</p></div><a class="goToActivity">></a></li>
-        <li class="activity"><div class="hopeThisWorks"><img src="images/member-4.jpg" class="user-photo" alt="Dan Oliver"><p>Dan Oliver</p><p class="ago">4 hours ago</p></div><a class="goToActivity">></a></li>
+        <li class="activity"><div><img src="images/member-1.jpg" class="user-photo" alt="Victoria Chambers"><p>Victoria Chambers commented on YourApp's SEO tips</p><p class="ago">4 hours ago</p></div><a class="goToActivity">></a></li>
+        <li class="activity"><div><img src="images/member-2.jpg" class="user-photo" alt="Dale Byrd"><p>Dale Byrd</p><p class="ago">4 hours ago</p></div><a class="goToActivity"></a></li>
+        <li class="activity"><div><img src="images/member-3.jpg" class="user-photo" alt="Dawn Wood"><p>Dawn Wood</p><p class="ago">4 hours ago</p></div><a class="goToActivity">></a></li>
+        <li class="activity"><div><img src="images/member-4.jpg" class="user-photo" alt="Dan Oliver"><p>Dan Oliver</p><p class="ago">4 hours ago</p></div><a class="goToActivity">></a></li>
       </ul>
     </div>
     <div class="message-user ten">
         <h3>Message User</h3>
       <form class="message" action="index.html" method="post">
-          <input type="text" id="name" name="user_name" placeholder="Search for User" required>
-          <textarea id="topics" name="user_ideas" placeholder="Message for User"></textarea>
-          <button type="submit">Send</button>
+          <input type="text" id="searchUser" name="user_name" placeholder="Search for User">
+          <textarea id="message" name="user_ideas" placeholder="Message for User"></textarea>
+          <button id ="sendMessage" type="submit">Send</button>
         </form>
     </div>
-    <div class="settings eleven">
+    <div class="settings eleven" id="settings">
       <h3>Settings</h3>
-      <form class="" action="index.html" method="post">
+      <form class="" id="contactForm" action="index.html" method="post">
         <div class="toggleOne">
           <label for="emailNotify" name="settings_email">Send Email Notifications</label>
           <label class="switch">
@@ -158,21 +178,21 @@
             <span class="slider round">on</span>
           </label>
         </div>
-        <select id="settings_timezone">
-          <option value="EST">Eastern Standard Time</option>
-          <option value="CST">Central Standard Time</option>
-          <option value="PST">Pacific Standard Time</option>
+        <select id="timezone">
+          <option id="est" >Eastern Standard Time</option>
+          <option id="cst" >Central Standard Time</option>
+          <option id="pst" >Pacific Standard Time</option>
         </select>
         <!-- <input type="checkbox" id="settings_public-profile" name="user_public-profile"> -->
-        <button type="submit">Save</button>
-        <button id="cancel" type="submit">Cancel</button>
+        <button type="submit" id="saveSettings">Save</button>
+        <button id="clearSettings" type="submit">Clear</button>
 
         </form>
     </div>
 
 <!-- </main> -->
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script src="js/main.js"></script>
 </body>
 
