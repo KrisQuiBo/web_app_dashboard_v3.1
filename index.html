@@ -30,7 +30,14 @@
     <!--user banner -->
     <div class="location-- header two" id="dashboard">
       <p class="logo"><b>Your</b>App&trade;</p>
-        <div class="user--" id="user">
+      <!-- Alert Menu -->
+        <ul id="alertWindow" class="hide">
+          <li class="alerts"><img src="images/member-1.jpg" class="user-photo" alt="Victoria Chambers"><p>Victoria Chambers commented on YourApp's SEO tips</p><p>4 hours ago</p><span class="close" id="">x</span></li>
+          <li class="alerts"><img src="images/member-2.jpg" class="user-photo" alt="Dale Byrd"><p>Dale Byrd made a pie.</p><p>4 hours ago</p><span class="close" id="">x</span></li>
+          <li class="alerts"><img src="images/member-3.jpg" class="user-photo" alt="Dawn Wood"><p>Dawn Wood earned another activity badge.</p><p>4 hours ago</p><span class="close" id="">x</span></li>
+          <li class="alerts"><img src="images/member-4.jpg" class="user-photo" alt="Dan Oliver"><p>Dan Oliver is learning to knit.</p><p>4 hours ago</p><span class="close" id="">x</span></li>
+        </ul>
+        <div class="user--">
           <!-- <img src="icons/icon-bell.svg" class="icons" alt="bell icon" id="bell-icon"> -->
           <svg version="1.1" id="bellIcon" class="bell" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
           	 viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
@@ -60,7 +67,7 @@
           <option value="Dawn Wood">
         </datalist>
         <input type="text" list="memberNames" id="searchMembers" placeholder="search " class="dashSearch">
-      <p class="alert" id="alert"><strong>Alert </strong> Lorem ipsum dolor sit amet, consectetur adipiscing
+      <p class="alertBox" id="alert"><strong>Alert </strong> Lorem ipsum dolor sit amet, consectetur adipiscing
         elit. Maecenas non nunc sed turpis pretium convallis id eget urna. Nam et. <button id="hideButton">X</button> </p>
     </div>
   </section>
@@ -135,27 +142,29 @@
     </div>
     <div class="new-members eight" id="members">
       <h3>New Members</h3>
-      <ul>
-        <li class="members"><div><img src="images/member-1.jpg" class="user-photo" alt="Victoria Chambers"><p>Victoria Chambers</p><a href="mailto:victoria.chambers80@example.com">victoria.chambers80@example.com</a></div><p>3/21/19</p></li>
-        <li class="members"><div><img src="images/member-2.jpg" class="user-photo" alt="Dale Byrd"><p>Dale Byrd</p><a href="mailto:dale.byrd52@example.com">dale.byrd52@example.com</a></div><p>3/21/19</p></li>
-        <li class="members"><div><img src="images/member-3.jpg" class="user-photo" alt="Dawn Wood"><p>Dawn Wood</p><a href="mailto:dawn.wood16@example.com">dawn.wood16@example.com</a></div><p>3/21/19</p></li>
-        <li class="members"><div><img src="images/member-4.jpg" class="user-photo" alt="Dan Oliver"><p>Dan Oliver</p><a href="mailto:dan.oliver82@example.com">dan.oliver82@example.com</a></div><p>3/21/19</p></li>
+      <ul class="newMembers">
+        <li class="members"><div class="squish"><img src="images/member-1.jpg" class="user-photo" alt="Victoria Chambers"><div class="stack"><p>Victoria Chambers</p><a href="mailto:victoria.chambers80@example.com">victoria.chambers80@example.com</a></div></div><p>3/21/19</p></li>
+        <li class="members"><div class="squish"><img src="images/member-2.jpg" class="user-photo" alt="Dale Byrd"><div class="stack"><p>Dale Byrd</p><a href="mailto:dale.byrd52@example.com">dale.byrd52@example.com</a></div></div><p>3/21/19</p></li>
+        <li class="members"><div class="squish"><img src="images/member-3.jpg" class="user-photo" alt="Dawn Wood"><div class="stack"><p>Dawn Wood</p><a href="mailto:dawn.wood16@example.com">dawn.wood16@example.com</a></div></div><p>3/21/19</p></li>
+        <li class="members"><div class="squish"><img src="images/member-4.jpg" class="user-photo" alt="Dan Oliver"><div class="stack"><p>Dan Oliver</p><a href="mailto:dan.oliver82@example.com">dan.oliver82@example.com</a></div></div><p>3/21/19</p></li>
       </ul>
     </div>
     <div class="recent-activity nine">
         <h3>Recent Activity</h3>
-      <ul>
-        <li class="activity"><div><img src="images/member-1.jpg" class="user-photo" alt="Victoria Chambers"><p>Victoria Chambers commented on YourApp's SEO tips</p><p class="ago">4 hours ago</p></div><a class="goToActivity">></a></li>
-        <li class="activity"><div><img src="images/member-2.jpg" class="user-photo" alt="Dale Byrd"><p>Dale Byrd</p><p class="ago">4 hours ago</p></div><a class="goToActivity"></a></li>
-        <li class="activity"><div><img src="images/member-3.jpg" class="user-photo" alt="Dawn Wood"><p>Dawn Wood</p><p class="ago">4 hours ago</p></div><a class="goToActivity">></a></li>
-        <li class="activity"><div><img src="images/member-4.jpg" class="user-photo" alt="Dan Oliver"><p>Dan Oliver</p><p class="ago">4 hours ago</p></div><a class="goToActivity">></a></li>
+      <ul class="recentActivity">
+        <li class="activity"><div class="squish"><img src="images/member-1.jpg" class="user-photo" alt="Victoria Chambers"><div class="stack"><p>Victoria Chambers commented on YourApp's SEO tips</p><p class="ago">20 minutes ago</p></div></div><a class="goToActivity">></a></li>
+        <li class="activity"><div class="squish"><img src="images/member-2.jpg" class="user-photo" alt="Dale Byrd"><div class="stack"><p>Dale Byrd made a pie.</p><p class="ago">2 hours ago</p></div></div><a class="goToActivity">></a></li>
+        <li class="activity"><div class="squish"><img src="images/member-3.jpg" class="user-photo" alt="Dawn Wood"><div class="stack"><p>Dawn Wood earned another activity badge.</p><p class="ago">4 hours ago</p></div></div><a class="goToActivity">></a></li>
+        <li class="activity"><div class="squish"><img src="images/member-4.jpg" class="user-photo" alt="Dan Oliver"><div class="stack"><p>Dan Oliver is learning to knit.</p><p class="ago">4 hours ago</p></div></div><a class="goToActivity">></a></li>
       </ul>
     </div>
     <div class="message-user ten">
         <h3>Message User</h3>
       <form class="message" action="index.html" method="post">
-          <input type="text" id="searchUser" name="user_name" placeholder="Search for User">
-          <textarea id="message" name="user_ideas" placeholder="Message for User"></textarea>
+        <div class="autocomplete">
+          <input type="text" id="searchUser" name="user_name" placeholder="Search for User" required>
+        </div>
+          <textarea id="message" name="user_ideas" placeholder="Message for User" required></textarea>
           <button id ="sendMessage" type="submit">Send</button>
         </form>
     </div>
@@ -169,9 +178,7 @@
             <span class="slider round">on</span>
           </label>
         </div>
-
-          <!-- <input type="checkbox" id="settings_email" name="user_email"> -->
-          <div class="toggleTwo">
+        <div class="toggleTwo">
           <label for="publicProf" class="publicProf" name="settings_email">Set Profile to Public</label>
           <label class="switch">
             <input type="checkbox" id="publicProf">

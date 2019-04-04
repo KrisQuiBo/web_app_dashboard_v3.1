@@ -38,15 +38,19 @@ h3 {
 .user-photo {
   padding: 1%;
   border-radius: 50%;
-  width: 5rem;
+  width: 4.5rem;
   align-self: center;
+}
+
+button {
+  outline: none;
 }
 
 /*----
   ----- base grid ----
                   ----*/
 .wrapper {
-  width: 96%;
+  width: 98%;
   max-width: 2680px;
   margin-left: auto;
   margin-right: auto;
@@ -54,9 +58,10 @@ h3 {
   border: 3px solid #5e75ba;
   border-radius: 10px;
 }
-@media (min-width: 769px) {
+@media (min-width: 1024px) {
   .wrapper {
     display: grid;
+    justify-content: space-between;
     grid-template-columns: 0.25fr repeat(2, 1fr);
   }
 }
@@ -67,19 +72,25 @@ h3 {
   padding: 10%;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1024px) {
   .stats--traffic {
     grid-column: 2/4;
   }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1024px) {
   .location--dashboard {
     grid-column: 2/4;
   }
 }
 
 @media (min-width: 769px) {
+  .stats--social-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 1024px) {
   .stats--social-stats {
     grid-column: 2/4;
   }
@@ -95,7 +106,7 @@ h3 {
   height: auto;
   padding: 20px;
 }
-@media (min-width: 769px) {
+@media (min-width: 1024px) {
   .icons {
     display: flex;
     flex-direction: column;
@@ -120,7 +131,7 @@ nav {
   width: 100%;
   justify-content: space-around;
 }
-@media (min-width: 769px) {
+@media (min-width: 1024px) {
   .nav {
     display: flex;
     flex-direction: column;
@@ -207,6 +218,10 @@ a {
   animation: tiltPop 1s ease-in backwards infinite;
 }
 
+.bellAnim {
+  animation: tiltPop 1s ease-in backwards infinite;
+}
+
 .iconAlert {
   position: absolute;
   top: 20px;
@@ -240,8 +255,39 @@ a {
   align-items: baseline;
 }
 
+#alertWindow {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.alerts {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  margin: 5px;
+  font-size: 0.8rem;
+  color: #263359;
+  border-bottom: 1px solid white;
+}
+.alerts img {
+  width: 10%;
+}
+
+.close {
+  cursor: pointer;
+  padding: 4px;
+}
+
 .hide {
   display: none;
+}
+
+.embed {
+  position: absolute;
+  top: 2%;
+  width: 80%;
+  border-radius: 10px;
+  width: 50%;
+  z-index: 100;
 }
 
 input {
@@ -256,7 +302,7 @@ input {
   background-position: right;
 }
 
-.alert {
+.alertBox {
   background: #5e75ba;
   font-size: 0.75em;
   color: white;
@@ -264,7 +310,7 @@ input {
   padding: 5px 15px 5px 10px;
 }
 
-.alert button {
+.alertBox button {
   background-color: transparent;
   border: none;
   color: white;
@@ -309,7 +355,7 @@ li#month:hover {
 /*-----
    ----- Social Stats -----
                       ----*/
-@media (min-width: 769px) {
+@media (min-width: 1024px) {
   .stats--social-stats {
     display: flex;
     margin: 2%;
@@ -332,7 +378,7 @@ li#month:hover {
   padding: 20px;
   background-color: #f8f9fc;
 }
-@media (min-width: 769px) {
+@media (min-width: 1024px) {
   .social-contain {
     width: 30%;
     background-color: white;
@@ -357,6 +403,13 @@ h4 {
 /*-----
   ----- Member  & Activity -----
                         -----*/
+.recentActivity,
+.newMembers {
+  margin: 1%;
+  border: 1px solid #5e75ba;
+  border-radius: 5px;
+}
+
 .members,
 .activity {
   width: 90%;
@@ -365,9 +418,23 @@ h4 {
   margin-right: auto;
   display: flex;
   justify-content: space-between;
+  text-align: center;
   margin: 3%;
   padding: 2%;
   border-bottom: 0.5px solid #263359;
+  font-size: 0.8rem;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: center;
+}
+
+.squish {
+  display: flex;
+  text-align: center;
 }
 
 .ago {
@@ -380,6 +447,68 @@ h4 {
   font-size: 3rem;
   padding-left: 1%;
   color: #263359;
+}
+
+/*---
+  ----- Autocomplete Styles  -----
+                              ---*/
+/*from w3 autocomplete saving grace */
+.autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+  display: inline-block;
+}
+
+input {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+}
+
+input[type=text] {
+  background-color: #f1f1f1;
+  width: 100%;
+}
+
+input[type=submit] {
+  background-color: #b7c2e0;
+  color: #fff;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+#searchUser,
+#message {
+  outline: 0.5px solid #263359;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #5e75ba;
+}
+
+.autocomplete-items div:hover {
+  /*when hovering an item:*/
+  background-color: #b7c2e0;
+}
+
+.autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: #b7c2e0 !important;
+  color: #ffffff;
 }
 
 /*---

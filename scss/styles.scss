@@ -12,14 +12,15 @@ $roboto: 'Roboto Slab', serif;
 $arimo: 'Arimo', sans-serif;
 
 $max-width: 2680px;
-$media-break: 769px;
+$media-break-tab: 769px;
+$media-break-desk: 1024px;
 
 /*maps*/
 $breakpoints: (
-  'xs': 575px,
-  'sm': 576px,
+  'sm': 320px,
  'med': 768px,
   'lg': 992px,
+  'xl': 2680px
   );
 
 /* mixins */
@@ -51,14 +52,9 @@ $breakpoints: (
 }
 
 @mixin media($size) {
-  @if $size == 'lg' {
       @media (min-width: $media-break) {
           @content;
         }
-    }
-    @else {
-        @error "'#{$size}' is not valid $size argument";
-    }
   }
 
 
@@ -92,34 +88,33 @@ h3 {
 .user-photo {
   padding: 1%;
   border-radius: 50%;
-  width: 5rem;
+  width: 4.5rem;
   align-self: center;
-  // height: 2em;
+
 }
+button {
+  outline: none;
+}
+
+
 /*----
   ----- base grid ----
                   ----*/
-
-
 .wrapper {
-  @include center(96%);
+  @include center(98%);
   background: white;
   border: 3px solid lighten($primaryColor, 30%);
   border-radius: 10px;
-    @media (min-width: $media-break) {
-      display: grid;
-      grid-template-columns: .25fr repeat(2, 1fr);
+    @media (min-width: $media-break-tab) {
       // display: grid;
-      // grid-template-columns: .25fr 1fr 1fr;
-      // grid-template-areas: "two two two"
-      //                       "one three three"
-      //                       "one four four"
-      //                       "one five six"
-      //                       "one seven seven"
-      //                       "one eight nine"
-      //                       "one ten eleven"
-      //
+      // grid-template-columns: .25fr 1fr;
     }
+    @media (min-width: $media-break-desk) {
+      display: grid;
+      justify-content: space-between;
+      grid-template-columns: .25fr repeat(2, 1fr);
+    }
+
 }
 .stats--traffic,
 .stats--daily-traffic,
@@ -127,78 +122,24 @@ h3 {
   padding: 10%;
 }
 .stats--traffic{
-  @media (min-width: $media-break) {
+  @media (min-width: $media-break-desk) {
     grid-column: 2/4;
   }
 }
 .location--dashboard {
-    @media (min-width: $media-break) {
+    @media (min-width: $media-break-desk) {
     grid-column: 2/4;
   }
 }
 .stats--social-stats {
-  @media(min-width: $media-break) {
-    grid-column: 2/4;
+  @media(min-width: $media-break-tab) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (min-width: $media-break-desk) {
+  grid-column: 2/4;
   }
 }
-// .three {
-//     @media (min-width: $media-break) {
-//       grid-area: three;
-//   }
-// }
-// .four {
-//     @media (min-width: $media-break) {
-//     grid-area: four;
-//   }
-// }
-// .five {
-//     @media (min-width: $media-break) {
-//     grid-area: five;
-//   }
-// }
-// .six {
-//   @media (min-width: $media-break) {
-//     grid-area: six;
-//   }
-// }
-//
-// .seven {
-//   @media (min-width: $media-break) {
-//     grid-area: seven;
-//   }
-// }
-// .eight {
-//   @media (min-width: $media-break) {
-//     grid-area: eight;
-//   }
-// }
-// .nine {
-//   @media (min-width: $media-break) {
-//     grid-area: nine;
-//   }
-// }
-// .ten {
-//   @media (min-width: $media-break) {
-//     grid-area: ten;
-//   }
-// }
-// .eleven {
-//   @media (min-width: $media-break) {
-//     grid-area: eleven;
-//   }
-// }
-
-
-// .one {
-//   display: grid;
-//   // grid-template-columns: repeat(4, 1fr);
-//   grid-template-rows: auto;
-//     @media (min-width: $media-break) {
-//       grid-area: one;
-//       @include flex-it($dir: column, $align: center);
-//       grid-template-columns: minmax(150px,1fr);
-//     }
-// }
 
 /*---
   ---- icon menu navigation
@@ -210,7 +151,7 @@ h3 {
   width: 4.5rem;
   height: auto;
   padding: 20px;
-    @media (min-width: $media-break) {
+    @media (min-width: $media-break-desk) {
       display: flex;
       flex-direction: column;
     }
@@ -232,9 +173,7 @@ margin: 0;
 display: flex;
 width: 100%;
 justify-content: space-around;
-  @media (min-width: $media-break) {
-    // display: grid;
-    // grid-area: one;
+  @media (min-width: $media-break-desk) {
     @include flex-it($dir: column, $align: center);
     grid-template-columns: minmax(150px,1fr);
   }
@@ -303,7 +242,10 @@ transform-origin: 16px 16px;
   }
 }
 .bell:hover {
-    animation: tiltPop 1s ease-in backwards infinite
+    animation: tiltPop 1s ease-in backwards infinite;
+}
+.bellAnim {
+  animation: tiltPop 1s ease-in backwards infinite;
 }
 .iconAlert {
   position: absolute;
@@ -315,9 +257,6 @@ transform-origin: 16px 16px;
   border-radius: 50%;
   font-size: .8rem;
 }
-// .two {
-//   grid-area: two;
-// }
 
 .active {
   border: 2px solid $accentColor;
@@ -339,8 +278,33 @@ transform-origin: 16px 16px;
   justify-content: space-between;
   align-items: baseline;
 }
+#alertWindow {
+  background: rgba(255,255,255,.8);
+}
+.alerts {
+  @include flex-it($just: space-between);
+  margin: 5px;
+  font-size: .8rem;
+  color: $primaryColor;
+  border-bottom: 1px solid white;
+    & img {
+      width: 10%;
+  }
+}
+.close {
+  cursor: pointer;
+  padding: 4px;
+}
 .hide {
   display: none;
+}
+.embed {
+  position: absolute;
+  top: 2%;
+  width: 80%;
+  border-radius: 10px;
+  width: 50%;
+  z-index: 100;
 }
 input {
   width: 50%;
@@ -354,7 +318,7 @@ input {
   background-size: 1.3em;
   background-position: right;
 }
-.alert {
+.alertBox {
   background: $secondaryColor;
   font-size: .75em;
   color: white;
@@ -362,7 +326,7 @@ input {
   padding: 5px 15px 5px 10px;
 
 }
-.alert button {
+.alertBox button {
     background-color: transparent;
     border: none;
     color: white;
@@ -404,7 +368,7 @@ li#month:hover {
    ----- Social Stats -----
                       ----*/
 .stats--social-stats {
-  @media (min-width: $media-break) {
+  @media (min-width: $media-break-desk) {
     display: flex;
     margin: 2%;
   }
@@ -424,7 +388,7 @@ li#month:hover {
   border-radius: 10px;
   padding: 20px;
   background-color: lighten($secondaryColor, 43);
-  @media (min-width: $media-break) {
+  @media (min-width: $media-break-desk) {
     width: 30%;
     background-color: white;
   }
@@ -445,20 +409,30 @@ h4 {
 /*-----
   ----- Member  & Activity -----
                         -----*/
-
+.recentActivity,
+.newMembers {
+  margin: 1%;
+  border: 1px solid $secondaryColor;
+  border-radius: 5px;
+}
 .members,
 .activity {
 @include center(90%);
-  display: flex;
-  justify-content: space-between;
+@include flex-it($just: space-between);
   margin: 3%;
   padding: 2%;
   border-bottom: .5px solid $primaryColor;
+  font-size: .8rem;
   // margin-top: 2%;
   // border: 1px solid $primaryColor;
   // border-radius: 10px;
 }
-
+.stack {
+  @include flex-it($dir: column, $align: flex-start)
+}
+.squish {
+  @include flex-it;
+}
 .ago {
   font-size: .9rem;
   font-weight: 800;
@@ -469,7 +443,59 @@ h4 {
   padding-left: 1%;
   color: $primaryColor;
 }
-
+/*---
+  ----- Autocomplete Styles  -----
+                              ---*/
+/*from w3 autocomplete saving grace */
+.autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+  display: inline-block;
+}
+input {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+}
+input[type=text] {
+  background-color: #f1f1f1;
+  width: 100%;
+}
+input[type=submit] {
+  background-color: lighten($secondaryColor, 25);
+  color: #fff;
+}
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+#searchUser,
+#message {
+  outline: .5px solid $primaryColor;
+}
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid $secondaryColor;
+}
+.autocomplete-items div:hover {
+  /*when hovering an item:*/
+  background-color: lighten($secondaryColor, 25);
+}
+.autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color:lighten($secondaryColor, 25) !important;
+  color: #ffffff;
+}
 
 /*---
   ----- Message & Settings  -----
