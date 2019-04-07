@@ -1,0 +1,106 @@
+/*----
+  ----- base grid ----
+                  ----*/
+.wrapper {
+  @include center(98%);
+  background: white;
+  border: 3px solid lighten($primaryColor, 30%);
+  border-radius: 10px;
+    @media (min-width: $media-break-tab) {
+      // display: grid;
+      // grid-template-columns: .25fr repeat(6, 1fr);
+    }
+    @media (min-width: $media-break-desk) {
+      display: grid;
+      grid-template-columns:4.5rem minmax(50%, auto);
+      grid-template-areas: "header header" "nav main" "nav main";
+      justify-content: space-between;
+    }
+}
+header {
+  grid-area: header;
+  @media (min-width: $media-break-desk) {
+    grid-column: 1/7;
+  }
+}
+main {
+    @include flex-it($dir: column);
+    grid-area: main;
+    @media (min-width: $media-break-desk) {
+      display: grid;
+    grid-template-columns: repeat(6, minmax(100px,1fr));
+  }
+}
+
+.stats--trafic {
+  @media (min-width: $media-break-desk) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+}
+.stats--traffic,
+.stats--daily-traffic,
+.stats--mobile-users {
+  padding: 10%;
+}
+.lineChart {
+  @media (min-width: $media-break-desk) {
+    grid-column: 1/7;
+}
+}
+.stats--daily-traffic {
+    @media (min-width: $media-break-desk) {
+      grid-column: 1/4;
+  }
+}
+.stats--mobile-users {
+  @media (min-width: $media-break-desk) {
+    grid-column: 4/7;
+  }
+}
+
+.stats--traffic{
+  @media (min-width: $media-break-desk) {
+  }
+}
+.location--dashboard {
+    @media (min-width: $media-break-desk) {
+    grid-column: 1/7;
+  }
+}
+.socialStats {
+  @media (min-width: $media-break-desk) {
+  grid-column: 1/7;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  }
+}
+.stats--social-stats {
+  @media (min-width: $media-break-desk) {
+  grid-column: 1/7;
+  }
+}
+.newMembers,
+.members--messageUser {
+  @media (min-width: $media-break-desk) {
+  grid-column: 1/4;
+  }
+}
+.recentActivity,
+.settings {
+  @media (min-width: $media-break-desk) {
+  grid-column: 4/7;
+  }
+}
+
+.location--header {
+  @include flex-it($just: space-between, $align: center);
+  padding: 10px;
+  margin: 0;
+  background-color: $secondaryColor;
+  color: white;
+    @media (min-width: $media-break-desk) {
+  grid-column: span 3/4;
+  grid-row: 1/2;
+  }
+}

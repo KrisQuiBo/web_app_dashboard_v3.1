@@ -1,0 +1,164 @@
+/*-----
+  ----- Global styles ----
+                      -----*/
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0 auto;
+  font-family: $lato;
+    background-color: lighten($secondaryColor, 40);
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+  color: $primaryColor;
+  &:hover {
+    color: $accentColor;
+  }
+}
+h3 {
+  text-transform: uppercase;
+  margin-left: 5%;
+}
+h4 {
+  font-size: 1.2rem;
+  color: $secondaryColor;
+}
+button {
+  outline: none;
+}
+main {
+  color: #555;
+}
+a {
+  text-align: center;
+}
+/*----
+    ---- dashboard & search -----
+                            ----*/
+
+.location--searchAlert {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+}
+#alertWindow {
+  background: rgba(255,255,255,.9);
+}
+
+.alerts {
+  @include flex-it($just: space-between);
+  margin: 5px;
+  font-size: .8rem;
+  color: $primaryColor;
+  border-bottom: 1px solid white;
+    & img {
+      width: 10%;
+  }
+}
+.close {
+  cursor: pointer;
+  padding: 4px;
+}
+.hide {
+  display: none;
+}
+.embed {
+  position: absolute;
+  top: 2%;
+  left: 5%;
+  border-radius: 10px;
+  width: 90%;
+  z-index: 100;
+}
+
+.alertBox {
+  @include center(75%);
+  // @include flex-it($just: space-between);
+  background: $accentColor;
+  font-size: .75em;
+  color: white;
+  padding: 5px 15px 5px 10px;
+  border: 1px solid $primaryColor;
+  border-radius: 5px;
+}
+
+/*-----
+   ----- Social Stats -----
+                      ----*/
+.stats--social-stats {
+  @media (min-width: $media-break-desk) {
+    display: flex;
+    margin: 2%;
+  }
+}
+.social-contain {
+  margin: 5% 1%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid $primaryColor;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: lighten($secondaryColor, 43);
+  @media (min-width: $media-break-desk) {
+    width: 30%;
+    background-color: white;
+  }
+}
+
+
+/*-----
+  ----- Member  & Activity -----
+                        -----*/
+.members--recentActivity,
+.members--newMembers {
+  margin: 1%;
+  border: 1px solid $secondaryColor;
+  border-radius: 5px;
+}
+.members,
+.activity {
+@include center(90%);
+@include flex-it($just: space-between);
+  margin: 3%;
+  padding: 2%;
+  border-bottom: .5px solid $primaryColor;
+  font-size: .65rem;
+}
+.members:last-child,
+.activity:last-child {
+    border-bottom: none;
+}
+.squish {
+  @include flex-it;
+}
+
+
+
+/*---
+  ----- Message & Settings  -----
+                              ---*/
+.members--messageUser,
+.settings {
+  border: 1px solid $secondaryColor;
+  border-radius: 10px;
+  padding: 2%;
+  margin: 2% 1%;
+  @media (min-width: $media-break-desk) {}
+
+}
+.message {
+  display: flex;
+  flex-direction: column;
+}

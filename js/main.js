@@ -154,6 +154,8 @@ sendMessage.addEventListener('click', function(e) {
     } else {
     window.alert('Your message to ' + searchUser.value + ' was sent!');
     }
+    searchUser.value = '';
+    message.value = '';
 });
 
 
@@ -171,7 +173,8 @@ alertBadge.addEventListener('mouseover', () => {
   // reveal recent alerts window
 const alertWindow = document.getElementById('alertWindow');
 const iconAlert = document.getElementById('iconAlert');
-iconAlert.addEventListener('click', () => {
+  let clicks = 3;
+  iconAlert.addEventListener('click', () => {
   alertWindow.classList.remove('hide');
   alertWindow.classList.add('embed');
 });
@@ -179,14 +182,14 @@ iconAlert.addEventListener('click', () => {
 //close alerts in pop-up window
 const closebtns = document.getElementsByClassName("close");
 for (let i = 0; i < closebtns.length; i++) {
+closebtns.onClick = function() {
+
+}
   closebtns[i].addEventListener("click", function() {
   this.parentElement.style.display = 'none';
-  for(let i=3; i>closebtns.length; i--) {
-    closebtns[i].addEventListener('click', function() {
-      iconAlert.innerHTML = (4-i);
-    });
-    }
-  });
+  //coundown alerts in badge
+    iconAlert.innerText = clicks--;
+});
 }
 
 // close Alert box
@@ -206,24 +209,6 @@ for (var i = 0; i < icons.length; i++) {
   this.className += " active";
   });
 }
-
-// sticky navigation
-// When the user scrolls the page, execute myFunction
-// window.onscroll = function() {myFunction()};
-//
-// const navbar = document.getElementById("icon-menu");
-//
-// var sticky = navbar.offsetTop;
-//
-// // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
-// function myFunction() {
-//   if (window.pageYOffset >= sticky) {
-//     navbar.classList.add("sticky")
-//   } else {
-//     navbar.classList.remove("sticky");
-//   }
-// }
-
 
 // local storage
 function supportsLocalStorage() {
@@ -277,49 +262,6 @@ const remember = () => {
 // CHARTS
 // Line charts
 
-// var ctx = document.getElementById('lineChart').getContext('2d');
-// const barData = {
-// labels: ["16-22", "23-29", "30-5", "6-12", "13-19", "20-26", "27-3", "4-10","11-17","18-24", "25-31"],
-// tension: 0,
-// backgroundColor: '#aaaacb',
-// borderColor: 'rgba(118, 120, 237, .8)',
-// datasets: [{
-//     // label: "Hourly",
-//     backgroundColor: 'rgba(183, 194, 224, .3)',
-//     borderColor: 'rgba(118, 120, 237, .8)',
-//     borderWidth: .5,
-//     pointStyle: 'circle',
-//     radius: 5,
-//     data: [0, 750, 1250, 1000, 1500, 2000, 1500, 1750, 1250, 1750, 2250, 1750, 2250 ],
-// },
-// {
-//   // label: "Daily",
-//   backgroundColor: 'rgba(133, 186, 94, .4)',
-//   borderColor: 'rgba(118, 120, 237, .8)',
-//   borderWidth: .5,
-//   pointStyle: 'circle',
-//   radius: 5,
-//     data: [500, 1000, 750, 1000, 2500, 500, 1500, 2750, 2250, 2550, 2250, 1000, 750 ],
-// },
-// {
-//   // label: "Weekly",
-//   backgroundColor: 'rgba(183, 194, 224, .8)',
-//   borderColor: 'rgba(118, 120, 237, .8)',
-//   borderWidth: .5,
-//   pointStyle: 'circle',
-//   radius: 5,
-//     data: [750, 750, 1250, 1000, 500, 2000, 1500, 1250, 1250, 1000, 2250, 2000, 2250 ],
-// },
-// {
-//   // label: "Monthly",
-//   backgroundColor: 'rgba(133, 186, 94, .8)',
-//   borderColor: 'rgba(118, 120, 237, .8)',
-//   borderWidth: .5,
-//   pointStyle: 'circle',
-//   radius: 5,
-//     data: [1000, 750, 1250, 1000, 1500, 2000, 1500, 1750, 1250, 1750, 2250, 1750, 2250 ],
-// }]
-// }
 const hrChrt = document.getElementById('hour');
 const dayChrt = document.getElementById('day');
 const wkChrt = document.getElementById('week');
@@ -327,7 +269,8 @@ const mnthChrt = document.getElementById('month');
 
 console.log(Chart.defaults);
 Chart.defaults.global.animation.easing = 'easeOutCirc';
-Chart.defaults.global.elements.rectangle.borderWidth = 13;
+Chart.defaults.global.elements.rectangle.borderWidth = 10;
+Chart.defaults.global.elements.rectangle.hoverBackgroundColor = '#85ba5e';
 Chart.defaults.global.elements.lineTension = .8;
 
 // Chart.defaults.global.animation.onComplete = () => {
@@ -387,8 +330,9 @@ var barChart = new Chart(ctx, {
     data: {
         labels: ["S", "M", "T", "W", "Th", "F", "S"],
         datasets: [{
-            label: '' ,
+            label: 'Daily Traffic' ,
             data: [50, 100, 150, 125, 200, 225, 75],
+            hoverBackgroundColor: '#85ba5e',
             backgroundColor: [
                 '#5e75ba',
                 '#5e75ba',
@@ -402,6 +346,7 @@ var barChart = new Chart(ctx, {
         }]
     },
     options: {
+
         scales: {
             yAxes: [{
                 ticks: {

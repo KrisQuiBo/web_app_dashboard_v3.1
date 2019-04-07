@@ -1,0 +1,59 @@
+#hideButton {
+    font-weight: bolder;
+    font-size: .7rem;
+    color: white;
+    float: right;
+    cursor: pointer;
+}
+/*-----
+   ----- Charts -----
+                      ----*/
+.btn-chart {
+@include flex-it($just: flex-end)
+}
+.btn {
+  margin-right: 1%;
+  padding: 1% 3%;
+  &:hover {
+    color: white;
+    // background-color: $accentColor;
+    border-radius: 25px;
+  }
+}
+li#hour:hover {
+  background-color:rgba(183, 194, 224, .5);
+}
+li#day:hover {
+  background-color: rgba(133, 186, 94, .4);
+}
+li#week:hover {
+  background-color: rgba(183, 194, 224, .9);
+}
+li#month:hover {
+  background-color: rgba(133, 186, 94, .8);
+}
+
+.message button,
+.settings button {
+  color: white;
+  background-color: $secondaryColor;
+  padding: 10px;
+  border-radius: .5rem;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  margin-top: 5%;
+}
+
+.settings button {
+  width: 45%;
+}
+button:hover {
+  background-color: darken($secondaryColor, 10);
+  cursor: pointer;
+}
+#clearSettings {
+  background-color: #ccc;
+}
+#clearSettings:hover {
+  background-color: #aaa;
+}

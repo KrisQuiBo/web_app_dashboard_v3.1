@@ -1,0 +1,68 @@
+.user-photo {
+  padding: 1%;
+  border-radius: 50%;
+  width: 3rem;
+  align-self: center;
+  @media (min-width: $media-break-desk) {
+    width: 4.5rem;
+  }
+}
+svg {
+  width: 5rem;
+  height: auto;
+  margin-right: 5%;
+}
+/*---
+  ----- header/location bar  -----
+                              ---*/
+
+.userBadge {
+    @include flex-it($dir: row, $just: space-between, $align:center);
+    position: relative;
+}
+
+.bell {
+width: 2.7rem;
+transform-origin: 16px 16px;
+}
+
+@keyframes tiltPop {
+  20% {
+    transform: scale(1.1) rotate(45deg);
+  }
+  40% {
+    transform: scale(.8) rotate(-32deg);
+  }
+  60% {
+    transform: scale(1.1) rotate(45deg);
+  }
+  80% {
+    transform: scale(.9) rotate(-12deg);
+  }
+}
+.bell:hover {
+    animation: tiltPop 1s ease-in backwards infinite;
+}
+.bellAnim {
+  animation: tiltPop 1s ease-in backwards infinite;
+}
+.iconAlert {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: #85ba5e;
+  padding: 5px;
+  width: 25px;
+  border-radius: 50%;
+  font-size: .8rem;
+}
+.active {
+  border: 1px solid $accentColor;
+  border-radius: 10px;
+  fill: $accentColor;
+}
+.show {
+  display: block;
+  position: relative;
+  z-index: 199;
+}

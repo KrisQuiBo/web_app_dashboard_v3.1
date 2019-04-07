@@ -1,0 +1,21 @@
+/* variables */
+$primaryColor: #263359;
+$secondaryColor: lighten($primaryColor, 30);
+$accentColor: lighten(adjust-hue($primaryColor, 230), 30);
+
+
+$lato: 'Lato', sans-serif;
+$roboto: 'Roboto Slab', serif;
+$arimo: 'Arimo', sans-serif;
+
+$max-width: 2680px;
+$media-break-tab: 769px;
+$media-break-desk: 1024px;
+
+/*maps*/
+$breakpoints: (
+  'sm': 320px,
+ 'med': 768px,
+  'lg': 992px,
+  'xl': 2680px
+  );
