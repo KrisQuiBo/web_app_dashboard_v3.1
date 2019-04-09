@@ -6,10 +6,6 @@
   background: white;
   border: 3px solid lighten($primaryColor, 30%);
   border-radius: 10px;
-    @media (min-width: $media-break-tab) {
-      // display: grid;
-      // grid-template-columns: .25fr repeat(6, 1fr);
-    }
     @media (min-width: $media-break-desk) {
       display: grid;
       grid-template-columns:4.5rem minmax(50%, auto);
@@ -44,18 +40,40 @@ main {
   padding: 10%;
 }
 .lineChart {
+  margin-bottom: 3%;
   @media (min-width: $media-break-desk) {
     grid-column: 1/7;
 }
 }
 .stats--daily-traffic {
+  @include center(70%);
+  height: 35vh;
+  min-height: 25rem;
+  @media (min-width: $media-break-tab) {
+    display: flex;
+    justify-content: space-between;
+  }
     @media (min-width: $media-break-desk) {
       grid-column: 1/4;
+      height: 25vh;
+      min-height: 30rem;
+      width: 40vw;
   }
 }
 .stats--mobile-users {
+  @include center(70%);
+  height: 15vh;
+  min-height: 25rem;
+  @media (min-width: $media-break-tab) {
+    display: flex;
+    justify-content: space-between;
+  }
   @media (min-width: $media-break-desk) {
     grid-column: 4/7;
+    height: 25vh;
+    min-height: 30rem;
+    padding-bottom: 70px;
+
   }
 }
 
@@ -68,18 +86,50 @@ main {
     grid-column: 1/7;
   }
 }
+/*-----
+   ----- Social Stats -----
+                      ----*/
 .socialStats {
+  margin-top: 5%;
   @media (min-width: $media-break-desk) {
   grid-column: 1/7;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   }
 }
+.socialStats > h3 {
+  grid-column: 1/7;
+  margin-bottom: 0;
+}
 .stats--social-stats {
+  @media (min-width: $media-break-tab) {
+    display: flex;
+    justify-content: space-between;
+  }
   @media (min-width: $media-break-desk) {
   grid-column: 1/7;
+  margin: 0 1% 1% 1%;
   }
 }
+.social-contain {
+  margin: 5% 1%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid $primaryColor;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: lighten($secondaryColor, 43);
+  @media (min-width: $media-break-tab) {
+  width: 23%;
+  }
+  @media (min-width: $media-break-desk) {
+    width: 30%;
+    background-color: white;
+  }
+}
+
 .newMembers,
 .members--messageUser {
   @media (min-width: $media-break-desk) {

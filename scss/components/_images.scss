@@ -1,16 +1,24 @@
 .user-photo {
   padding: 1%;
   border-radius: 50%;
-  width: 3rem;
+  width: 15vw;
   align-self: center;
   @media (min-width: $media-break-desk) {
-    width: 4.5rem;
+
+    width: 7vw;
   }
 }
-svg {
+.header-photo {
   width: 5rem;
+  border-radius: 50%;
+}
+svg {
+  width: 7rem;
   height: auto;
   margin-right: 5%;
+  @media (min-width: $media-break-tab) {
+    width: 6rem;
+  }
 }
 /*---
   ----- header/location bar  -----
@@ -56,13 +64,12 @@ transform-origin: 16px 16px;
   border-radius: 50%;
   font-size: .8rem;
 }
-.active {
-  border: 1px solid $accentColor;
-  border-radius: 10px;
-  fill: $accentColor;
-}
+
 .show {
   display: block;
   position: relative;
   z-index: 199;
+}
+canvas {
+  width: 60vw;
 }

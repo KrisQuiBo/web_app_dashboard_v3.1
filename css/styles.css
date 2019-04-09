@@ -35,9 +35,12 @@ a:hover {
   color: #85ba5e;
 }
 
+.location--searchAlert > h3 {
+  margin-left: 5%;
+}
+
 h3 {
   text-transform: uppercase;
-  margin-left: 5%;
 }
 
 h4 {
@@ -99,7 +102,7 @@ a {
   left: 5%;
   border-radius: 10px;
   width: 90%;
-  z-index: 100;
+  z-index: 200;
 }
 
 .alertBox {
@@ -121,7 +124,7 @@ a {
 @media (min-width: 1024px) {
   .stats--social-stats {
     display: flex;
-    margin: 2%;
+    margin: 1%;
   }
 }
 
@@ -136,6 +139,11 @@ a {
   padding: 20px;
   background-color: #f8f9fc;
 }
+@media (min-width: 769px) {
+  .social-contain {
+    width: 23%;
+  }
+}
 @media (min-width: 1024px) {
   .social-contain {
     width: 30%;
@@ -146,11 +154,17 @@ a {
 /*-----
   ----- Member  & Activity -----
                         -----*/
-.members--recentActivity,
-.members--newMembers {
+.members--newMembers,
+.members--recentActivity {
   margin: 1%;
   border: 1px solid #5e75ba;
   border-radius: 5px;
+}
+@media (min-width: 1024px) {
+  .members--newMembers,
+.members--recentActivity {
+    height: 90%;
+  }
 }
 
 .members,
@@ -162,10 +176,17 @@ a {
   display: flex;
   justify-content: space-between;
   text-align: center;
-  margin: 3%;
+  margin-top: 1%;
+  margin-bottom: 2%;
   padding: 2%;
   border-bottom: 0.5px solid #263359;
   font-size: 0.65rem;
+}
+@media (min-width: 1024px) {
+  .members,
+.activity {
+    height: 22%;
+  }
 }
 
 .members:last-child,
@@ -548,7 +569,7 @@ template {
 }
 .btn:hover {
   color: white;
-  border-radius: 25px;
+  border-radius: 10px;
 }
 
 li#hour:hover {
@@ -565,6 +586,11 @@ li#week:hover {
 
 li#month:hover {
   background-color: rgba(133, 186, 94, 0.8);
+}
+
+.activeBtn {
+  border-radius: 25px;
+  fill: #85ba5e;
 }
 
 .message button,
@@ -834,21 +860,58 @@ main {
   padding: 10%;
 }
 
+.lineChart {
+  margin-bottom: 3%;
+}
 @media (min-width: 1024px) {
   .lineChart {
     grid-column: 1/7;
   }
 }
 
+.stats--daily-traffic {
+  width: 70%;
+  max-width: 2680px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 35vh;
+  min-height: 25rem;
+}
+@media (min-width: 769px) {
+  .stats--daily-traffic {
+    display: flex;
+    justify-content: space-between;
+  }
+}
 @media (min-width: 1024px) {
   .stats--daily-traffic {
     grid-column: 1/4;
+    height: 25vh;
+    min-height: 30rem;
+    width: 40vw;
   }
 }
 
+.stats--mobile-users {
+  width: 70%;
+  max-width: 2680px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 15vh;
+  min-height: 25rem;
+}
+@media (min-width: 769px) {
+  .stats--mobile-users {
+    display: flex;
+    justify-content: space-between;
+  }
+}
 @media (min-width: 1024px) {
   .stats--mobile-users {
     grid-column: 4/7;
+    height: 25vh;
+    min-height: 30rem;
+    padding-bottom: 70px;
   }
 }
 
@@ -858,6 +921,12 @@ main {
   }
 }
 
+/*-----
+   ----- Social Stats -----
+                      ----*/
+.socialStats {
+  margin-top: 5%;
+}
 @media (min-width: 1024px) {
   .socialStats {
     grid-column: 1/7;
@@ -866,9 +935,44 @@ main {
   }
 }
 
+.socialStats > h3 {
+  grid-column: 1/7;
+  margin-bottom: 0;
+}
+
+@media (min-width: 769px) {
+  .stats--social-stats {
+    display: flex;
+    justify-content: space-between;
+  }
+}
 @media (min-width: 1024px) {
   .stats--social-stats {
     grid-column: 1/7;
+    margin: 0 1% 1% 1%;
+  }
+}
+
+.social-contain {
+  margin: 5% 1%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #263359;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #f8f9fc;
+}
+@media (min-width: 769px) {
+  .social-contain {
+    width: 23%;
+  }
+}
+@media (min-width: 1024px) {
+  .social-contain {
+    width: 30%;
+    background-color: white;
   }
 }
 
@@ -906,19 +1010,29 @@ main {
 .user-photo {
   padding: 1%;
   border-radius: 50%;
-  width: 3rem;
+  width: 15vw;
   align-self: center;
 }
 @media (min-width: 1024px) {
   .user-photo {
-    width: 4.5rem;
+    width: 7vw;
   }
 }
 
-svg {
+.header-photo {
   width: 5rem;
+  border-radius: 50%;
+}
+
+svg {
+  width: 7rem;
   height: auto;
   margin-right: 5%;
+}
+@media (min-width: 769px) {
+  svg {
+    width: 6rem;
+  }
 }
 
 /*---
@@ -971,16 +1085,14 @@ svg {
   font-size: 0.8rem;
 }
 
-.active {
-  border: 1px solid #85ba5e;
-  border-radius: 10px;
-  fill: #85ba5e;
-}
-
 .show {
   display: block;
   position: relative;
   z-index: 199;
+}
+
+canvas {
+  width: 60vw;
 }
 
 /*---
@@ -1007,6 +1119,12 @@ nav {
   top: 0;
   z-index: 100;
 }
+.active {
+  border: 1px solid #85ba5e;
+  border-radius: 10px;
+  fill: #85ba5e;
+}
+
 .navigation {
   background-color: #263359;
   grid-column: 1/2;
@@ -1042,6 +1160,13 @@ nav {
 
 .stack {
   text-align: left;
+  padding-left: 3%;
+  font-size: 1.1rem;
+  line-height: 1.3em;
+}
+
+.squish + p {
+  font-size: 2em;
 }
 
 .ago {

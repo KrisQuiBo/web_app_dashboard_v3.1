@@ -260,6 +260,17 @@ const remember = () => {
 }
 
 // CHARTS
+
+const btnChart = document.getElementById("btn-chart");
+var btn = document.getElementsByClassName("btn");
+for (var i = 0; i < btn.length; i++) {
+  btn[i].addEventListener("click", function() {
+  var current = document.getElementsByClassName("active");
+  current[0].className = current[0].className.replace(" active", "");
+  this.className += " active";
+  });
+}
+
 // Line charts
 
 const hrChrt = document.getElementById('hour');
@@ -346,11 +357,21 @@ var barChart = new Chart(ctx, {
         }]
     },
     options: {
+      legend: {
+        display: false
+      },
+      maintainAspectRatio: false,
+       aspectRatio: 1,
 
         scales: {
+          xAxes: [{
+            barPercentage: 0.9,
+              barThickness: 'flex'
+          }],
             yAxes: [{
                 ticks: {
-                    beginAtZero:true
+                    beginAtZero:true,
+                    lineHeight: 1.3
                 }
             }]
         }
@@ -374,6 +395,23 @@ var myDoughnutChart = new Chart(ctx, {
         data: [15, 18, 67],
     }]
     },
-    options: {}
+    options: {
+      legend: {
+        display: true,
+        position: 'top',
+        labels: {
+          fontSize: 15,
+          boxWidth: 10,
+          padding: 10
+        }
+      },
+      layout: {
+        padding: {
+          // top: 50
+        }
+       },
+      maintainAspectRatio: false,
+       aspectRatio: 1,
+    }
 });
 }

@@ -24,9 +24,12 @@ a {
     color: $accentColor;
   }
 }
+.location--searchAlert > h3 {
+  margin-left: 5%;
+}
 h3 {
   text-transform: uppercase;
-  margin-left: 5%;
+  // margin-left: 5%;
 }
 h4 {
   font-size: 1.2rem;
@@ -78,7 +81,7 @@ a {
   left: 5%;
   border-radius: 10px;
   width: 90%;
-  z-index: 100;
+  z-index: 200;
 }
 
 .alertBox {
@@ -98,7 +101,7 @@ a {
 .stats--social-stats {
   @media (min-width: $media-break-desk) {
     display: flex;
-    margin: 2%;
+    margin: 1%;
   }
 }
 .social-contain {
@@ -111,6 +114,9 @@ a {
   border-radius: 10px;
   padding: 20px;
   background-color: lighten($secondaryColor, 43);
+  @media (min-width: $media-break-tab) {
+  width: 23%;
+  }
   @media (min-width: $media-break-desk) {
     width: 30%;
     background-color: white;
@@ -121,21 +127,30 @@ a {
 /*-----
   ----- Member  & Activity -----
                         -----*/
-.members--recentActivity,
-.members--newMembers {
+.members--newMembers,
+.members--recentActivity {
   margin: 1%;
   border: 1px solid $secondaryColor;
   border-radius: 5px;
+  @media (min-width: $media-break-desk) {
+    // height: 120vh;
+    height: 90%;
+  }
 }
 .members,
 .activity {
 @include center(90%);
 @include flex-it($just: space-between);
-  margin: 3%;
+  margin-top: 1%;
+  margin-bottom: 2%;
   padding: 2%;
   border-bottom: .5px solid $primaryColor;
   font-size: .65rem;
+  @media (min-width: $media-break-desk) {
+    height: 22%;
+  }
 }
+
 .members:last-child,
 .activity:last-child {
     border-bottom: none;

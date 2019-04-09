@@ -16,8 +16,7 @@
   padding: 1% 3%;
   &:hover {
     color: white;
-    // background-color: $accentColor;
-    border-radius: 25px;
+    border-radius: 10px;
   }
 }
 li#hour:hover {
@@ -31,6 +30,10 @@ li#week:hover {
 }
 li#month:hover {
   background-color: rgba(133, 186, 94, .8);
+}
+.activeBtn {
+    border-radius: 25px;
+    fill: $accentColor;
 }
 
 .message button,

@@ -16,6 +16,7 @@
 </head>
 <body>
   <div class="wrapper" id="wrapper">
+<!-- Location & Alert Banner -->
     <header class="location--header" id="dashboard">
       <p class="logo"><b>Your</b>App&trade;</p>
       <!-- Alert Menu -->
@@ -38,11 +39,12 @@
           	</g>
           </g>
           </svg>
-          <img src="images/member-1.jpg" class="user-photo" alt="Jane Sullivan">
+          <img src="images/member-1.jpg" class="header-photo" alt="Jane Sullivan">
           <div class="iconAlert" id="iconAlert">4</div>
           <p>Jane Sullivan</p>
       </div>
     </header>
+<!-- Navigation Icons -->
     <nav id="navigation" class="navigation">
         <ul class="nav" id="nav">
           <li><a href="#dashboard"><img class="icons active" src="icons/icon-dashboard.svg" alt="dashboard icon"></a></li>
@@ -52,6 +54,7 @@
         </ul>
       </nav>
     <main>
+<!-- Dashboard & Search -->
       <div class="location--dashboard">
         <div class="location--searchAlert">
           <h3>Dashboard</h3>
@@ -59,28 +62,33 @@
           <p class="alertBox" id="alert"><span><strong>Alert</strong></span>&nbsp; Jane Sullivan is eating a bagel! &nbsp;<span id="hideButton">X</span></p>
         </div>
       </div>
-        <div class="lineChart">
-          <h3>Traffic</h3>
-            <ul class="btn-chart">
-              <li class="btn" id="hour">Hourly</li>
-              <li class="btn" id="day">Daily</li>
-              <li class="btn" id="week">Weekly</li>
-              <li class="btn" id="month">Monthly</li>
-            </ul>
-          <canvas id="lineChart" width="900" height="400"></canvas>
-        </div>
-        <div class="stats--daily-traffic">
-          <h3>Daily Traffic</h3>
-          <canvas id="barChart" width="500" height="400"></canvas>
-        </div>
-        <div class="stats--mobile-users">
-          <h3>Mobile Users</h3>
-          <canvas id="donutChart" width="400" height="400"></canvas>
+<!-- Line Chart -->
+      <div class="lineChart">
+        <h3>Traffic</h3>
+          <ul class="btn-chart" id ="btn-chart">
+            <li class="btn" id="hour">Hourly</li>
+            <li class="btn" id="day">Daily</li>
+            <li class="btn" id="week">Weekly</li>
+            <li class="btn" id="month">Monthly</li>
+          </ul>
+        <canvas id="lineChart" width="900" height="400"></canvas>
       </div>
+<!-- Bar Chart -->
+      <div class="stats--daily-traffic">
+        <h3>Daily Traffic</h3>
+        <canvas id="barChart" width="500" height="400"></canvas>
+      </div>
+<!-- Doughnut Chart -->
+      <div class="stats--mobile-users">
+        <h3>Mobile Users</h3>
+        <canvas id="donutChart" width="200" height="200"></canvas>
+      </div>
+<!-- Social Stats -->
     <div class="socialStats">
+      <h3>Social Stats</h3>
       <div class="stats--social-stats" id="visits">
         <div class="twitter social-contain">
-          <svg version="1.1" class="twitter" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="60px" x="24" y="24"
+          <svg version="1.1" class="twitter" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="60px"
         	viewBox="-23 -23 80 80" width="56.693px" style="enable-background:new 0 0 32 32;" xml:space="preserve">
           <circle cx="15" cy="15" r="34" stroke="black" stroke-width="1" fill="#5e75ba" />
           <path  fill="white" d="M32,3.1c-1.2,0.5-2.4,0.9-3.8,1c1.4-0.8,2.4-2.1,2.9-3.6c-1.3,0.8-2.7,1.3-4.2,1.6C25.8,0.8,24,0,22.2,0
@@ -129,6 +137,8 @@
           </div>
     </div>
   </div>
+  <!-- Membership Widgets -->
+<!-- Mew Members -->
     <div class="newMembers" id="members">
       <h3>New Members</h3>
       <ul class="members--newMembers">
@@ -138,15 +148,17 @@
         <li class="members"><div class="squish"><img src="images/member-4.jpg" class="user-photo" alt="Dan Oliver"><div class="stack"><p>Dan Oliver</p><a href="mailto:dan.oliver82@example.com">dan.oliver82@example.com</a></div></div><p>3/21/19</p></li>
       </ul>
     </div>
+<!-- Recent Activity -->
     <div class="recentActivity">
         <h3>Recent Activity</h3>
       <ul class="members--recentActivity">
-        <li class="activity"><div class="squish"><img src="images/member-1.jpg" class="user-photo" alt="Victoria Chambers"><div class="stack"><p>Victoria Chambers commented on YourApp's SEO tips</p><p class="ago">20 minutes ago</p></div></div><a class="goToActivity">></a></li>
-        <li class="activity"><div class="squish"><img src="images/member-2.jpg" class="user-photo" alt="Dale Byrd"><div class="stack"><p>Dale Byrd made a pie.</p><p class="ago">2 hours ago</p></div></div><a class="goToActivity">></a></li>
-        <li class="activity"><div class="squish"><img src="images/member-3.jpg" class="user-photo" alt="Dawn Wood"><div class="stack"><p>Dawn Wood earned another activity badge.</p><p class="ago">4 hours ago</p></div></div><a class="goToActivity">></a></li>
         <li class="activity"><div class="squish"><img src="images/member-4.jpg" class="user-photo" alt="Dan Oliver"><div class="stack"><p>Dan Oliver is learning to knit.</p><p class="ago">4 hours ago</p></div></div><a class="goToActivity">></a></li>
+        <li class="activity"><div class="squish"><img src="images/member-1.jpg" class="user-photo" alt="Victoria Chambers"><div class="stack"><p>Victoria Chambers commented on YourApp's SEO tips</p><p class="ago">20 minutes ago</p></div></div><a class="goToActivity">></a></li>
+        <li class="activity"><div class="squish"><img src="images/member-3.jpg" class="user-photo" alt="Dawn Wood"><div class="stack"><p>Dawn Wood earned another activity badge.</p><p class="ago">4 hours ago</p></div></div><a class="goToActivity">></a></li>
+        <li class="activity"><div class="squish"><img src="images/member-2.jpg" class="user-photo" alt="Dale Byrd"><div class="stack"><p>Dale Byrd made a pie.</p><p class="ago">2 hours ago</p></div></div><a class="goToActivity">></a></li>
       </ul>
     </div>
+<!-- Message Users -->
     <div class="members--messageUser">
         <h3>Message User</h3>
       <form class="message" action="index.html" method="post">
@@ -157,6 +169,7 @@
           <button id ="sendMessage" type="submit">Send</button>
         </form>
     </div>
+<!-- Settings -->
     <div class="settings" id="settings">
       <h3>Settings</h3>
       <form id="contactForm" action="index.html" method="post">

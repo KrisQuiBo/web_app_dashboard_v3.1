@@ -24,7 +24,11 @@ z-index: 100;
 
     }
   }
-
+  .active {
+    border: 1px solid $accentColor;
+    border-radius: 10px;
+    fill: $accentColor;
+  }
 
 .navigation {
   background-color: $primaryColor;

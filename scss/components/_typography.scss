@@ -7,6 +7,12 @@
 }
 .stack {
   text-align: left;
+  padding-left: 3%;
+  font-size: 1.1rem;
+  line-height: 1.3em;
+}
+.squish + p {
+  font-size: 2em;
 }
 .ago {
   font-size: .9rem;
