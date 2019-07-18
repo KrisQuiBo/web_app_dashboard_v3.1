@@ -15,7 +15,7 @@
 }
 
 nav {
-background-color: $primaryColor;
+background-color: $secondaryColor;
 grid-area: nav;
 position: sticky;
 top: 0;
@@ -31,7 +31,7 @@ z-index: 100;
   }
 
 .navigation {
-  background-color: $primaryColor;
+  background-color: $secondaryColor;
   grid-column: 1/2;
   grid-row: 2/8;
 }
@@ -43,7 +43,10 @@ display: flex;
 width: 100%;
 justify-content: space-around;
   @media (min-width: $media-break-desk) {
-    @include flex-it($dir: column, $align: center);
+    @include flex-it($dir: column);
     grid-template-columns: minmax(150px,1fr);
+    position: fixed;
+top: 100px;
+left: 15px;
   }
 }

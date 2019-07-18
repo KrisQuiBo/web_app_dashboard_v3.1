@@ -259,8 +259,9 @@ const remember = () => {
   remember();
 }
 
+/////////////////
 // CHARTS
-
+/////////////////
 const btnChart = document.getElementById("btn-chart");
 var btn = document.getElementsByClassName("btn");
 for (var i = 0; i < btn.length; i++) {
@@ -296,10 +297,10 @@ let myChart = new Chart(lineChart, {
             {
                 label: 'Visitors',
                 data: [350, 1250, 1000, 2000, 1500, 1750, 1250, 1750, 2250, 1750, 2250],
-                backgroundColor: 'rgba(115, 119, 191, 0.25)',
-                borderColor: '#7477bf',
+                backgroundColor: 'rgba(255, 255, 255, 6)',
+                borderColor: '#75a9e5',
                 borderWidth: 1.5,
-                pointBorderWidth: 1.8,
+                pointBorderWidth: 2.8,
                 pointBackgroundColor: '#fff',
                 pointHoverBackgroundColor: '#e7e8f9',
                 pointRadius: 5,
@@ -311,26 +312,26 @@ let myChart = new Chart(lineChart, {
 hrChrt.addEventListener('click', () => {
     myChart.data.labels = ['9am', '10am', '11pm', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
     myChart.config.data.datasets[0].data = [750, 1250, 1000, 1500, 2000, 1500, 1750, 1250, 1750, 1750, 2250 ];
-    myChart.data.datasets[0].backgroundColor = 'rgba(183, 194, 224, .3)';
+    myChart.data.datasets[0].backgroundColor = '#fda168';
     myChart.update();
 });
 
 dayChrt.addEventListener('click', () => {
     myChart.data.labels = ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'];
     myChart.config.data.datasets[0].data = [1000, 750, 1000, 2500, 2750, 1500, 750];
-    myChart.data.datasets[0].backgroundColor = 'rgba(133, 186, 94, .4)';
+    myChart.data.datasets[0].backgroundColor = '#cbdff5';
     myChart.update();
 });
 wkChrt.addEventListener('click', () => {
     myChart.data.labels = ['16-22', '23-29', '30-5', '6-12', '13-19', '20-26', '27-3', '4-10', '11-17', '18-24', '25-31'];
     myChart.config.data.datasets[0].data = [350, 1250, 1000, 2000, 1500, 1750, 1250, 1750, 2250, 1750, 2250];
-    myChart.data.datasets[0].backgroundColor = 'rgba(183, 194, 224, .8)';
+    myChart.data.datasets[0].backgroundColor = '#fed2ba';
     myChart.update();
 });
 mnthChrt.addEventListener('click', () => {
     myChart.data.labels = ['Jan','Feb','March','Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',];
     myChart.config.data.datasets[0].data = [1500, 2000, 3000, 4000, 3200, 2000, 2500, 2800, 3500, 4000, 3000, 2500];
-    myChart.data.datasets[0].backgroundColor = 'rgba(133, 186, 94, .4)';
+    myChart.data.datasets[0].backgroundColor = '#75a9e5';
     myChart.update();
 });
 
@@ -345,13 +346,13 @@ var barChart = new Chart(ctx, {
             data: [50, 100, 150, 125, 200, 225, 75],
             hoverBackgroundColor: '#85ba5e',
             backgroundColor: [
-                '#5e75ba',
-                '#5e75ba',
-                '#5e75ba',
-                '#5e75ba',
-                '#5e75ba',
-                '#5e75ba',
-                '#5e75ba',
+                '#cbdff5',
+                '#cbdff5',
+                '#cbdff5',
+                '#cbdff5',
+                '#cbdff5',
+                '#cbdff5',
+                '#cbdff5',
 
             ],
         }]
@@ -386,9 +387,9 @@ var myDoughnutChart = new Chart(ctx, {
     datasets: [{
         label: "My First dataset",
         backgroundColor: [
-                        '#b7c2e0',
-                        '#85ba5e',
-                        '#5e75ba'
+                        '#cbdff5',
+                        '#fda168',
+                        '#75a9e5'
                       ],
         borderColor: '#535389',
         borderWidth: .5,

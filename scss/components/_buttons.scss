@@ -20,17 +20,29 @@
   }
 }
 li#hour:hover {
-  background-color:rgba(183, 194, 224, .5);
+  background-color: lighten($accentColor, 20);
 }
 li#day:hover {
-  background-color: rgba(133, 186, 94, .4);
+  background-color: lighten($primaryColor, 50);
 }
 li#week:hover {
-  background-color: rgba(183, 194, 224, .9);
+  background-color: lighten($accentColor, 35);
 }
 li#month:hover {
-  background-color: rgba(133, 186, 94, .8);
+  background-color: lighten($secondaryColor, 5);
 }
+// li#hour:hover {
+//   background-color:rgba(183, 194, 224, .5);
+// }
+// li#day:hover {
+//   background-color: rgba(133, 186, 94, .4);
+// }
+// li#week:hover {
+//   background-color: rgba(183, 194, 224, .9);
+// }
+// li#month:hover {
+//   background-color: rgba(133, 186, 94, .8);
+// }
 .activeBtn {
     border-radius: 25px;
     fill: $accentColor;

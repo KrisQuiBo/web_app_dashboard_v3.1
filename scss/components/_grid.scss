@@ -26,6 +26,7 @@ main {
       display: grid;
     grid-template-columns: repeat(6, minmax(100px,1fr));
   }
+  z-index: 100;
 }
 
 .stats--trafic {
@@ -147,7 +148,7 @@ main {
   @include flex-it($just: space-between, $align: center);
   padding: 10px;
   margin: 0;
-  background-color: $secondaryColor;
+  background-color: $primaryColor;
   color: white;
     @media (min-width: $media-break-desk) {
   grid-column: span 3/4;
